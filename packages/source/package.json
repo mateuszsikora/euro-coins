@@ -11,9 +11,7 @@
       "import": "./dist/index.js"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "tsc",
     "test": "node --test --import tsx \"src/**/*.test.ts\"",
@@ -31,20 +29,12 @@
   "bugs": {
     "url": "https://github.com/mateuszsikora/euro-coins/issues"
   },
-  "keywords": [
-    "euro",
-    "coins",
-    "numismatics",
-    "ecb",
-    "european-central-bank",
-    "metadata"
-  ],
+  "keywords": ["euro", "coins", "numismatics", "ecb", "european-central-bank", "metadata"],
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.0",
     "@types/node": "^22.10.0",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0"
