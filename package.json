@@ -1,0 +1,7 @@
+{
+  "name": "euro-coins",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
