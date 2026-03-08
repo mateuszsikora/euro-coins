@@ -47,7 +47,7 @@ const regular1999 = [
 
 // ECB image filenames may contain different years (design/asset dates).
 // The year field represents the coin issuance year.
-const regular2008 = [
+const mixed2008 = [
   regular({
     year: 2008,
     denomination: '2euro',
@@ -94,7 +94,7 @@ const regular2008 = [
   }),
 ];
 
-const regular2014 = [
+const mixed2014 = [
   regular({
     year: 2014,
     denomination: '2euro',
@@ -349,13 +349,13 @@ export default [
   ...commemorative2005,
   ...commemorative2006,
   ...commemorative2007,
-  ...regular2008,
+  ...mixed2008,
   ...commemorative2009,
   ...commemorative2010,
   ...commemorative2011,
   ...commemorative2012,
   ...commemorative2013,
-  ...regular2014,
+  ...mixed2014,
   ...commemorative2015,
   ...commemorative2016,
   ...commemorative2017,
