@@ -17,7 +17,7 @@ type JpegOptions = {
  */
 export async function toJpeg(buffer: Buffer, options: JpegOptions = {}): Promise<Buffer> {
   const { quality = DEFAULT_QUALITY } = options;
-  if (quality < 1 || quality > 100) {
+  if (!Number.isFinite(quality) || quality < 1 || quality > 100) {
     throw new RangeError(`JPEG quality must be between 1 and 100, got ${quality}`);
   }
   return sharp(buffer)

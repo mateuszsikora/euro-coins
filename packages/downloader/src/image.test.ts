@@ -53,4 +53,9 @@ describe('toJpeg', () => {
     const png = await createPng();
     await assert.rejects(() => toJpeg(png, { quality: 0 }), RangeError);
   });
+
+  it('throws on NaN quality', async () => {
+    const png = await createPng();
+    await assert.rejects(() => toJpeg(png, { quality: Number.NaN }), RangeError);
+  });
 });

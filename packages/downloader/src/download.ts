@@ -150,7 +150,11 @@ export async function downloadAll(
     }
   }
 
-  await Promise.all(Array.from({ length: Math.min(concurrency, coins.length) }, worker));
+  const workerCount = Math.max(
+    1,
+    Math.min(Number.isFinite(concurrency) ? concurrency : DEFAULT_CONCURRENCY, coins.length)
+  );
+  await Promise.all(Array.from({ length: workerCount }, worker));
 
   const metadata = entries.filter((e): e is CoinMetadata => e !== undefined);
   await writeFile(join(output, 'metadata.json'), `${JSON.stringify(metadata, null, 2)}\n`);

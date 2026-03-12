@@ -13,6 +13,7 @@
   },
   "files": ["dist"],
   "scripts": {
+    "prepack": "npm run build",
     "build": "tsc --build",
     "typecheck": "tsc --noEmit -p tsconfig.test.json",
     "test": "node --test --import tsx \"src/**/*.test.ts\"",
@@ -31,7 +32,7 @@
     "url": "https://github.com/mateuszsikora/euro-coins/issues"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=21"
   },
   "keywords": ["euro", "coins", "downloader", "ecb", "sharp", "image-processing"],
   "publishConfig": {
@@ -39,7 +40,7 @@
     "provenance": true
   },
   "dependencies": {
-    "@euro-coins/source": "*",
+    "@euro-coins/source": "^0.1.0",
     "sharp": "^0.33.0"
   }
 }

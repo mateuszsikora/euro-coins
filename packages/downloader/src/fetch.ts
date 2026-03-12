@@ -1,12 +1,21 @@
 /** Result of a fetch operation. Discriminated union on `ok`. */
 export type FetchResult<T = undefined> = { ok: true; data: T } | { ok: false; error: Error };
 
+const DEFAULT_TIMEOUT = 30_000;
+
 async function request(url: string, method: 'GET' | 'HEAD'): Promise<Response> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), DEFAULT_TIMEOUT);
   try {
-    return await fetch(url, { method });
+    return await fetch(url, { method, signal: controller.signal });
   } catch (err) {
+    if (controller.signal.aborted) {
+      throw new Error(`Request timed out after ${DEFAULT_TIMEOUT}ms for ${url}`);
+    }
     const message = err instanceof Error ? err.message : String(err);
     throw new Error(`Failed to fetch ${url}: ${message}`);
+  } finally {
+    clearTimeout(timer);
   }
 }
 

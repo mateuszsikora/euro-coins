@@ -29,6 +29,10 @@ export async function checkUrl(url: string): Promise<boolean> {
  */
 export async function checkUrls(urls: string[], options: CheckOptions = {}): Promise<boolean[]> {
   const { concurrency = DEFAULT_CONCURRENCY, onProgress } = options;
+  const workerCount = Math.max(
+    1,
+    Math.min(Number.isFinite(concurrency) ? concurrency : DEFAULT_CONCURRENCY, urls.length)
+  );
   const results = new Array<boolean>(urls.length);
   let nextIndex = 0;
   let done = 0;
@@ -42,6 +46,6 @@ export async function checkUrls(urls: string[], options: CheckOptions = {}): Pro
     }
   }
 
-  await Promise.all(Array.from({ length: Math.min(concurrency, urls.length) }, worker));
+  await Promise.all(Array.from({ length: workerCount }, worker));
   return results;
 }
