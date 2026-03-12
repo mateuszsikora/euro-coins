@@ -31,9 +31,6 @@
   "bugs": {
     "url": "https://github.com/mateuszsikora/euro-coins/issues"
   },
-  "engines": {
-    "node": ">=21"
-  },
   "keywords": ["euro", "coins", "downloader", "ecb", "sharp", "image-processing"],
   "publishConfig": {
     "access": "public",

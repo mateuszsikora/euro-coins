@@ -3,6 +3,7 @@ export { checkUrl, checkUrls } from './check.js';
 export { downloadAll, downloadOne } from './download.js';
 export { fetchImage } from './fetch.js';
 export { toJpeg } from './image.js';
+export type { JpegOptions } from './image.js';
 export { allCoinsMetadata, coinMetadata } from './metadata.js';
 export type { CoinMetadata } from './metadata.js';
 export type {

@@ -2,7 +2,7 @@ import sharp from 'sharp';
 
 const DEFAULT_QUALITY = 100;
 
-type JpegOptions = {
+export type JpegOptions = {
   /** JPEG quality 1–100 (default 100). */
   quality?: number;
 };
