@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import type { CoinConfig } from '@euro-coins/source';
+import type { CoinSource } from '@euro-coins/source';
 import { allCoinsMetadata, coinMetadata } from './metadata.js';
 
-const coins: CoinConfig[] = [
+const coins: CoinSource[] = [
   {
     country: 'de',
     year: 2002,

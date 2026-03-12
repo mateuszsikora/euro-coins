@@ -1,3 +1,4 @@
+import type { CoinSource } from './coin-source.js';
 import ad from './countries/ad.js';
 import at from './countries/at.js';
 import be from './countries/be.js';
@@ -22,9 +23,9 @@ import si from './countries/si.js';
 import sk from './countries/sk.js';
 import sm from './countries/sm.js';
 import va from './countries/va.js';
-import type { CoinConfig } from './types.js';
 
-export function getAllCoinsFromMap(): CoinConfig[] {
+/** Returns all coin sources across all 24 eurozone countries. */
+export function getAllCoins(): CoinSource[] {
   return [
     ...ad,
     ...at,

@@ -1,6 +1,6 @@
-import { coinConfigFactory } from '../utils.js';
+import { coinSourceFactory } from '../coin-source-factory.js';
 
-const { regular, commemorative } = coinConfigFactory('be');
+const { regular, commemorative } = coinSourceFactory('be');
 
 const regular1999 = [
   regular({

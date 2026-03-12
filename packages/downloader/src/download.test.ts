@@ -4,7 +4,7 @@ import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, beforeEach, describe, it, mock } from 'node:test';
-import type { CoinConfig } from '@euro-coins/source';
+import type { CoinSource } from '@euro-coins/source';
 import { downloadAll, downloadOne } from './download.js';
 import { coinMetadata } from './metadata.js';
 
@@ -27,9 +27,9 @@ function mockFetchWithPng() {
   mockFetch(async () => new Response(PNG_BYTES, { status: 200 }));
 }
 
-function coin(country: string, url: string): CoinConfig {
+function coin(country: string, url: string): CoinSource {
   return {
-    country: country as CoinConfig['country'],
+    country: country as CoinSource['country'],
     year: 2002,
     denomination: '2euro',
     type: 'regular',

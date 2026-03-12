@@ -1,15 +1,47 @@
 import assert from 'node:assert';
 import { describe, it } from 'node:test';
-import { getCountryName } from './country-names.js';
-import type { CoinConfig, CountryCode } from './types.js';
+import type { CoinSource, CountryCode } from './coin-source.js';
+
+const COUNTRY_NAMES: Record<CountryCode, string> = {
+  ad: 'Andorra',
+  at: 'Austria',
+  be: 'Belgium',
+  cy: 'Cyprus',
+  de: 'Germany',
+  es: 'Spain',
+  et: 'Estonia',
+  fi: 'Finland',
+  fr: 'France',
+  gr: 'Greece',
+  hr: 'Croatia',
+  ie: 'Ireland',
+  it: 'Italy',
+  lt: 'Lithuania',
+  lu: 'Luxembourg',
+  lv: 'Latvia',
+  mc: 'Monaco',
+  mt: 'Malta',
+  nl: 'Netherlands',
+  pt: 'Portugal',
+  si: 'Slovenia',
+  sk: 'Slovakia',
+  sm: 'San Marino',
+  va: 'Vatican City',
+};
+
+function getCountryName(code: CountryCode): string {
+  return COUNTRY_NAMES[code];
+}
 
 type Year = number;
 type NumberOfRegularCoins = number;
 type NumberOfCommemorativeCoins = number;
 type CountrySpec = [Year, NumberOfRegularCoins, NumberOfCommemorativeCoins];
+/** Array of `[year, regularCount, commemorativeCount]` tuples defining expected coin counts. */
 export type CountrySpecs = CountrySpec[];
 
-export function runCountryTest(country: CountryCode, specs: CountrySpecs, coins: CoinConfig[]) {
+/** Validates that a country's coin data matches the expected year/count specs. */
+export function runCountryTest(country: CountryCode, specs: CountrySpecs, coins: CoinSource[]) {
   const countryName = getCountryName(country);
 
   const coinYears = new Set(coins.map((coin) => coin.year));

@@ -1,4 +1,4 @@
-export { getAllCoinsFromMap as getAllCoins } from './coins.js';
-export type { CoinConfig, CoinType, CountryCode, Denomination } from './types.js';
-export { BASE_URL, COUNTRIES, DENOMINATIONS } from './types.js';
-export { coinConfigFactory } from './utils.js';
+export { getAllCoins } from './all-coins.js';
+export type { CoinSource, CoinType, CountryCode, Denomination } from './coin-source.js';
+export { COUNTRIES, DENOMINATIONS } from './coin-source.js';
+export { coinSourceFactory } from './coin-source-factory.js';
