@@ -54,9 +54,4 @@ Creates a commemorative coin. Requires `year` and `url`. Defaults to `denominati
 
 ## Image URLs
 
-All URLs point to the ECB website. Regular coin URLs follow a pattern like:
-```
-https://www.ecb.europa.eu/euro/coins/common/shared/img/{code}/{Country}_{denomination}.jpg
-```
-
-Commemorative coin URLs vary by year and are listed in `../commemorative-urls.ts`.
+All URLs must point to the [ECB website](https://www.ecb.europa.eu).
