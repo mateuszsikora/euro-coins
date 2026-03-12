@@ -62,23 +62,13 @@ describe('coinSourceFactory', () => {
       });
     });
 
-    it('defaults denomination to 2euro', () => {
+    it('sets denomination to 2euro', () => {
       const coin = commemorative({
         year: 2015,
         url: 'https://example.com/coin.jpg',
       });
 
       assert.equal(coin.denomination, '2euro');
-    });
-
-    it('allows overriding denomination', () => {
-      const coin = commemorative({
-        year: 2020,
-        denomination: '1euro',
-        url: 'https://example.com/coin.jpg',
-      });
-
-      assert.equal(coin.denomination, '1euro');
     });
 
     it('allows overriding index', () => {

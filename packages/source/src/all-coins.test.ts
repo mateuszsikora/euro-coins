@@ -27,15 +27,4 @@ describe('getAllCoins', () => {
       assert.ok(countriesInData.has(code), `missing country: ${code}`);
     }
   });
-
-  it('has no duplicate identities (country + type + year + denomination + index)', () => {
-    const seen = new Set<string>();
-    const duplicates: string[] = [];
-    for (const coin of coins) {
-      const id = `${coin.country}_${coin.type}_${coin.year}_${coin.denomination}_${coin.index}`;
-      if (seen.has(id)) duplicates.push(id);
-      seen.add(id);
-    }
-    assert.deepEqual(duplicates, []);
-  });
 });

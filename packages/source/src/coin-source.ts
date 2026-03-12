@@ -1,4 +1,4 @@
-/** All 24 eurozone country ISO 3166-1 alpha-2 codes. */
+/** All 24 countries and territories that use the euro (ISO 3166-1 alpha-2 codes). */
 export const COUNTRIES = [
   'at',
   'be',
@@ -41,7 +41,7 @@ export const DENOMINATIONS = [
 /** Euro coin denomination, e.g. `'2euro'`, `'50cent'`. */
 export type Denomination = (typeof DENOMINATIONS)[number];
 
-/** ISO 3166-1 alpha-2 code for a eurozone country. */
+/** ISO 3166-1 alpha-2 code for a euro-using country or territory. */
 export type CountryCode = (typeof COUNTRIES)[number];
 
 /** `'regular'` for standard circulation coins, `'commemorative'` for special editions. */

@@ -38,7 +38,7 @@ export type DownloadResult = {
 
 /** A coin that failed to download, with the error message. */
 export type FailedDownload = {
-  /** Original coin config. */
+  /** Original coin source entry. */
   coin: CoinSource;
   /** Deterministic coin identifier. */
   id: string;

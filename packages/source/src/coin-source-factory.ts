@@ -1,4 +1,4 @@
-import type { CoinSource, CountryCode, Denomination } from './coin-source.js';
+import type { CoinSource, CountryCode } from './coin-source.js';
 
 /**
  * Creates `regular` and `commemorative` helper functions scoped to a country.
@@ -14,7 +14,7 @@ export function coinSourceFactory(country: CountryCode) {
   });
 
   const commemorative = (
-    data: Pick<CoinSource, 'year' | 'url'> & { denomination?: Denomination; index?: number }
+    data: Pick<CoinSource, 'year' | 'url'> & { index?: number }
   ): CoinSource => ({
     denomination: '2euro',
     index: 0,

@@ -32,7 +32,7 @@ Creates a regular circulation coin. Requires `year`, `denomination`, and `url`. 
 
 ### `commemorative()`
 
-Creates a commemorative coin. Requires `year` and `url`. Defaults to `denomination: '2euro'` and `index: 0`. Override `index` when a country has multiple commemorative coins in the same year.
+Creates a commemorative coin. Requires `year` and `url`. Denomination is always `'2euro'`. Defaults `index` to `0` — override when a country has multiple commemorative coins in the same year.
 
 ## Adding a new country
 
