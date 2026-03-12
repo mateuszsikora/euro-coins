@@ -14,6 +14,8 @@ const DEFAULT_CONCURRENCY = 16;
  *
  * Returns `true` if the URL is reachable (HTTP 2xx), `false` otherwise.
  * Never throws — network errors are treated as unreachable.
+ *
+ * @returns `true` if the URL responds with 2xx.
  */
 export async function checkUrl(url: string): Promise<boolean> {
   const result = await checkImage(url);

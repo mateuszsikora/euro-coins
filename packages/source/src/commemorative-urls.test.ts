@@ -1,7 +1,7 @@
 import assert from 'node:assert';
 import { describe, it } from 'node:test';
 
-import { getAllCoinsFromMap } from './coins.js';
+import { getAllCoins } from './all-coins.js';
 import * as commemorativeUrls from './commemorative-urls.js';
 
 const allExpectedUrls = Object.entries(commemorativeUrls)
@@ -10,7 +10,7 @@ const allExpectedUrls = Object.entries(commemorativeUrls)
   .flatMap(([, urls]) => urls as string[]);
 
 describe('commemorative URLs', () => {
-  const allUsedUrls = new Set(getAllCoinsFromMap().map((coin) => coin.url));
+  const allUsedUrls = new Set(getAllCoins().map((coin) => coin.url));
 
   for (const url of allExpectedUrls) {
     it(`should have URL: ${url}`, () => {
@@ -20,7 +20,7 @@ describe('commemorative URLs', () => {
 });
 
 describe('unique coin identities', () => {
-  const allCoins = getAllCoinsFromMap();
+  const allCoins = getAllCoins();
 
   it('should have unique (country, type, year, denomination, index) for every coin', () => {
     const seen = new Set<string>();
@@ -37,7 +37,7 @@ describe('unique coin identities', () => {
 });
 
 describe('placeholder coins', () => {
-  const allCoins = getAllCoinsFromMap();
+  const allCoins = getAllCoins();
   const placeholderCoins = allCoins.filter((coin) => coin.url.includes('placeholder_coming_soon'));
 
   it('should have exactly 12 placeholder coins (2024: va, 2025: lt, si, mc, hr, fr, gr×2, va×3, pt)', () => {

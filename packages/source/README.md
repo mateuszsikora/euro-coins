@@ -22,14 +22,18 @@ const coins = getAllCoins();
 
 ## API
 
-### `getAllCoins(): CoinConfig[]`
+### `getAllCoins(): CoinSource[]`
 
-Returns all coin configurations.
+Returns all coin sources across all 24 eurozone countries.
+
+### `coinSourceFactory(country)`
+
+Factory for creating coin source entries. Returns `{ regular, commemorative }` helpers — see [countries/README.md](src/countries/README.md) for usage.
 
 ### Types
 
 ```typescript
-interface CoinConfig {
+interface CoinSource {
   country: CountryCode;   // ISO country code (e.g. 'at', 'de', 'fr')
   year: number;
   denomination: Denomination;
@@ -43,7 +47,10 @@ interface CoinConfig {
 
 - `COUNTRIES` — list of all 24 eurozone country codes
 - `DENOMINATIONS` — list of all 8 denominations (`2euro`, `1euro`, `50cent`, ..., `1cent`)
-- `BASE_URL` — ECB base URL
+
+## Adding a country
+
+See [countries/README.md](src/countries/README.md) for the file structure and step-by-step guide.
 
 ## Data source
 

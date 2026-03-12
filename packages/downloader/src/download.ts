@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import type { CoinConfig } from '@euro-coins/source';
+import type { CoinSource } from '@euro-coins/source';
 import { fetchImage } from './fetch.js';
 import { toJpeg } from './image.js';
 import { type CoinMetadata, allCoinsMetadata, coinMetadata } from './metadata.js';
@@ -39,7 +39,7 @@ export type DownloadResult = {
 /** A coin that failed to download, with the error message. */
 export type FailedDownload = {
   /** Original coin config. */
-  coin: CoinConfig;
+  coin: CoinSource;
   /** Deterministic coin identifier. */
   id: string;
   /** Human-readable error message. */
@@ -61,7 +61,7 @@ export type DownloadOneResult =
  * @returns `downloaded`, `skipped` (file already exists), or `failed`.
  */
 export async function downloadOne(
-  coin: CoinConfig,
+  coin: CoinSource,
   entry: CoinMetadata,
   options: { output: string; quality?: number; forceRefresh?: boolean }
 ): Promise<DownloadOneResult> {
@@ -100,7 +100,7 @@ export async function downloadOne(
  * @returns Summary with metadata entries, counts, and any failures.
  */
 export async function downloadAll(
-  coins: CoinConfig[],
+  coins: CoinSource[],
   options: DownloadOptions
 ): Promise<DownloadResult> {
   const {

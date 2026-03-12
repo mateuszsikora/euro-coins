@@ -1,4 +1,4 @@
-import type { CoinConfig, CoinType, CountryCode, Denomination } from '@euro-coins/source';
+import type { CoinSource, CoinType, CountryCode, Denomination } from '@euro-coins/source';
 import { buildId } from './id.js';
 
 /** Metadata entry describing a single coin image. */
@@ -30,7 +30,7 @@ type MetadataOptions = {
  * @example coinMetadata(coin) // { id: 'de_regular_2002_2euro_0', image: 'de_regular_2002_2euro_0.jpg', … }
  * @example coinMetadata(coin, { useSourceUrl: true }) // image → original ECB URL
  */
-export function coinMetadata(coin: CoinConfig, options: MetadataOptions = {}): CoinMetadata {
+export function coinMetadata(coin: CoinSource, options: MetadataOptions = {}): CoinMetadata {
   const id = buildId(coin);
   return {
     id,
@@ -49,7 +49,7 @@ export function coinMetadata(coin: CoinConfig, options: MetadataOptions = {}): C
  * Delegates to {@link coinMetadata} for each coin, preserving input order.
  */
 export function allCoinsMetadata(
-  coins: CoinConfig[],
+  coins: CoinSource[],
   options: MetadataOptions = {}
 ): CoinMetadata[] {
   return coins.map((coin) => coinMetadata(coin, options));
