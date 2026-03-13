@@ -9,7 +9,6 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "predev": "npm run download",
-    "prebuild": "npm run download",
     "test": "vitest run",
     "typecheck": "tsc --noEmit -p tsconfig.test.json",
     "qa": "biome check .",

@@ -42,6 +42,7 @@ export function Filters({ view, metadata, filters, onChange }: Props) {
   return (
     <div className="filters">
       <select
+        aria-label="Country"
         value={filters.country}
         onChange={(e) => onChange({ ...filters, country: e.target.value })}
       >
@@ -55,6 +56,7 @@ export function Filters({ view, metadata, filters, onChange }: Props) {
 
       {showDenomination && (
         <select
+          aria-label="Denomination"
           value={filters.denomination}
           onChange={(e) => onChange({ ...filters, denomination: e.target.value })}
         >
@@ -69,6 +71,7 @@ export function Filters({ view, metadata, filters, onChange }: Props) {
 
       {showYear && (
         <select
+          aria-label="Year"
           value={filters.year}
           onChange={(e) => onChange({ ...filters, year: e.target.value })}
         >

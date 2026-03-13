@@ -22,6 +22,7 @@ export function Header({ view }: Props) {
               key={tab.view}
               href={`#${tab.view}`}
               className={`tab ${view === tab.view ? 'tab-active' : ''}`}
+              aria-current={view === tab.view ? 'page' : undefined}
             >
               {tab.label}
             </a>

@@ -9,6 +9,7 @@ export function Footer() {
         href="https://github.com/mateuszsikora/euro-coins/issues"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Report missing coins or data issues (opens in a new tab)"
       >
         Report missing coins or data issues
       </a>

@@ -22,8 +22,10 @@ export function AllView({ coins }: Props) {
         const commemorative = countryCoins.filter((c) => c.type === 'commemorative');
         const regularByYear = groupBy(regular, (c) => String(c.year));
         const commemorativeByYear = groupBy(commemorative, (c) => String(c.year));
-        const regularYears = [...regularByYear.keys()].sort();
-        const commemorativeYears = [...commemorativeByYear.keys()].sort();
+        const regularYears = [...regularByYear.keys()].sort((a, b) => Number(a) - Number(b));
+        const commemorativeYears = [...commemorativeByYear.keys()].sort(
+          (a, b) => Number(a) - Number(b)
+        );
 
         return (
           <Section key={country} title={COUNTRY_NAMES[country as CountryCode]}>

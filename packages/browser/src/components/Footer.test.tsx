@@ -13,5 +13,6 @@ describe('Footer', () => {
     const link = screen.getByRole('link', { name: /Report missing coins/ });
     expect(link).toHaveAttribute('href', 'https://github.com/mateuszsikora/euro-coins/issues');
     expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   });
 });

@@ -19,8 +19,8 @@ npm run dev             # start dev server
 | Script | Description |
 |---|---|
 | `npm run download` | Download coin images to `public/coins/` |
-| `npm run dev` | Start Vite dev server (auto-downloads coins) |
-| `npm run build` | Type-check and production build (auto-downloads coins) |
+| `npm run dev` | Start Vite dev server (auto-downloads coins via predev) |
+| `npm run build` | Type-check and production build (run `download` first) |
 | `npm run preview` | Preview production build |
 
 ## Views
@@ -41,7 +41,7 @@ Each view has contextual filters:
 
 ## Data
 
-Coin images and `metadata.json` are downloaded at dev/build time via `@euro-coins/cli` and served from `public/coins/`. This directory is gitignored — no images are stored in the repository.
+Coin images and `metadata.json` are downloaded via `@euro-coins/cli` and served from `public/coins/`. The `dev` script auto-downloads via `predev`; for production builds, run `npm run download` explicitly after building the CLI. This directory is gitignored — no images are stored in the repository.
 
 ## ECB attribution
 

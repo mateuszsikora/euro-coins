@@ -18,7 +18,9 @@ describe('Header', () => {
   it('marks the active tab', () => {
     render(<Header view="regular" />);
     expect(screen.getByText('Regular')).toHaveClass('tab-active');
+    expect(screen.getByText('Regular')).toHaveAttribute('aria-current', 'page');
     expect(screen.getByText('All')).not.toHaveClass('tab-active');
+    expect(screen.getByText('All')).not.toHaveAttribute('aria-current');
   });
 
   it('links tabs to hash routes', () => {

@@ -20,7 +20,7 @@ export function RegularView({ coins }: Props) {
       {sortedCountries.map((country) => {
         const countryCoins = byCountry.get(country) ?? [];
         const byYear = groupBy(countryCoins, (c) => String(c.year));
-        const years = [...byYear.keys()].sort();
+        const years = [...byYear.keys()].sort((a, b) => Number(a) - Number(b));
 
         return (
           <Section key={country} title={COUNTRY_NAMES[country as CountryCode]}>

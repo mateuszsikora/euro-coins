@@ -76,8 +76,9 @@ describe('Filters', () => {
   it('calls onChange when country select changes', () => {
     const onChange = vi.fn();
     render(<Filters view="all" metadata={metadata} filters={emptyFilters} onChange={onChange} />);
-    const selects = screen.getAllByRole('combobox');
-    fireEvent.change(selects[0], { target: { value: 'de' } });
+    fireEvent.change(screen.getByRole('combobox', { name: 'Country' }), {
+      target: { value: 'de' },
+    });
     expect(onChange).toHaveBeenCalledWith({ country: 'de', denomination: '', year: '' });
   });
 });

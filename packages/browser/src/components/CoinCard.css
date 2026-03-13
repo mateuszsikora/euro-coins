@@ -11,6 +11,16 @@
   box-shadow: var(--shadow-hover);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .coin-card {
+    transition: none;
+  }
+
+  .coin-card:hover {
+    transform: none;
+  }
+}
+
 .coin-image {
   width: 100%;
   aspect-ratio: 1;

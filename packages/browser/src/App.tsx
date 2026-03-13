@@ -34,13 +34,13 @@ export function App() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('/coins/metadata.json')
+    fetch(`${import.meta.env.BASE_URL}coins/metadata.json`)
       .then((res) => {
         if (!res.ok) throw new Error(`Failed to load metadata: ${res.status}`);
         return res.json();
       })
       .then((data) => setMetadata(data))
-      .catch((err) => setError(err.message))
+      .catch((err) => setError(err instanceof Error ? err.message : String(err)))
       .finally(() => setLoading(false));
   }, []);
 
