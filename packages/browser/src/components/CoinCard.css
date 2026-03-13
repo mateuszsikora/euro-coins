@@ -1,0 +1,47 @@
+.coin-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 200ms, box-shadow 200ms;
+}
+
+.coin-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coin-card {
+    transition: none;
+  }
+
+  .coin-card:hover {
+    transform: none;
+  }
+}
+
+.coin-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: var(--color-surface);
+  padding: 16px;
+}
+
+.coin-info {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.coin-country {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.coin-detail {
+  color: var(--color-text-secondary);
+  font-size: 0.8125rem;
+}
