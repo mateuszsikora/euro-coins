@@ -12,7 +12,7 @@ export function CoinCard({ coin }: Props) {
     <div className="coin-card">
       <img
         className="coin-image"
-        src={`/coins/${coin.image}`}
+        src={`${import.meta.env.BASE_URL}coins/${coin.image}`}
         alt={`${COUNTRY_NAMES[coin.country]} ${coin.year} ${DENOMINATION_LABELS[coin.denomination]}`}
         loading="lazy"
       />

@@ -28,7 +28,7 @@ describe('CoinCard', () => {
   it('renders image with correct src and lazy loading', () => {
     render(<CoinCard coin={coin} />);
     const img = screen.getByRole('img');
-    expect(img).toHaveAttribute('src', '/coins/de_regular_2002_2euro_0.jpg');
+    expect(img.getAttribute('src')).toContain('coins/de_regular_2002_2euro_0.jpg');
     expect(img).toHaveAttribute('loading', 'lazy');
   });
 
