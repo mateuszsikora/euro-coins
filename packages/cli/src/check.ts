@@ -24,6 +24,12 @@ export async function checkCommand(flags: CheckFlags): Promise<void> {
       }
     );
 
+    if (results.length !== coins.length) {
+      spinner.fail(`Result length mismatch: expected ${coins.length}, got ${results.length}`);
+      process.exitCode = 1;
+      return;
+    }
+
     const deadCount = results.filter((r) => !r).length;
 
     if (deadCount === 0) {
