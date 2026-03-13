@@ -1,0 +1,23 @@
+.footer {
+  border-top: 1px solid var(--color-border);
+  padding: 24px 16px;
+  text-align: center;
+  margin-top: 48px;
+}
+
+.footer-text {
+  color: var(--color-text-secondary);
+  font-size: 0.8125rem;
+}
+
+.footer-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--color-accent);
+  font-size: 0.8125rem;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}

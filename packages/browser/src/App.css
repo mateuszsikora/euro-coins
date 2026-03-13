@@ -1,0 +1,35 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.main {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.status-message {
+  text-align: center;
+  color: var(--color-text-secondary);
+  padding: 64px 16px;
+  font-size: 1.125rem;
+}
+
+.status-message.error {
+  color: #d00;
+}
+
+.year-group {
+  margin-bottom: 16px;
+}
+
+.year-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}

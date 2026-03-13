@@ -1,0 +1,28 @@
+import type { CountryCode } from './types';
+
+export const COUNTRY_NAMES: Record<CountryCode, string> = {
+  ad: 'Andorra',
+  at: 'Austria',
+  be: 'Belgium',
+  cy: 'Cyprus',
+  de: 'Germany',
+  es: 'Spain',
+  et: 'Estonia',
+  fi: 'Finland',
+  fr: 'France',
+  gr: 'Greece',
+  hr: 'Croatia',
+  ie: 'Ireland',
+  it: 'Italy',
+  lt: 'Lithuania',
+  lu: 'Luxembourg',
+  lv: 'Latvia',
+  mc: 'Monaco',
+  mt: 'Malta',
+  nl: 'Netherlands',
+  pt: 'Portugal',
+  si: 'Slovenia',
+  sk: 'Slovakia',
+  sm: 'San Marino',
+  va: 'Vatican City',
+};
