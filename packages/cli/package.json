@@ -1,0 +1,43 @@
+{
+  "name": "@euro-coins/cli",
+  "version": "0.1.0",
+  "description": "CLI for downloading and checking euro coin images from ECB",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "euro-coins": "./dist/bin.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "tsc --build",
+    "typecheck": "tsc --noEmit -p tsconfig.test.json",
+    "test": "node --test --import tsx \"src/**/*.test.ts\"",
+    "qa": "biome check .",
+    "qa:fix": "biome check --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mateuszsikora/euro-coins.git",
+    "directory": "packages/cli"
+  },
+  "license": "MIT",
+  "author": "Mateusz Sikora",
+  "homepage": "https://github.com/mateuszsikora/euro-coins/tree/main/packages/cli",
+  "bugs": {
+    "url": "https://github.com/mateuszsikora/euro-coins/issues"
+  },
+  "keywords": ["euro", "coins", "cli", "ecb", "downloader"],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "dependencies": {
+    "@euro-coins/downloader": "^0.1.0",
+    "@euro-coins/source": "^0.1.0",
+    "commander": "^12.0.0",
+    "ora": "^8.0.0"
+  }
+}
