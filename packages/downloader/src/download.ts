@@ -2,6 +2,7 @@ import { existsSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import type { CoinSource } from '@euro-coins/source';
+import { concurrentMap } from './concurrent.js';
 import { fetchImage } from './fetch.js';
 import { toJpeg } from './image.js';
 import { type CoinMetadata, allCoinsMetadata, coinMetadata } from './metadata.js';
@@ -124,15 +125,11 @@ export async function downloadAll(
   const failed: FailedDownload[] = [];
   let downloaded = 0;
   let skipped = 0;
-  let done = 0;
 
-  let nextIndex = 0;
-  async function worker() {
-    while (nextIndex < coins.length) {
-      const i = nextIndex++;
-      const coin = coins[i];
+  const results = await concurrentMap(
+    coins,
+    async (coin, i) => {
       const entry = coinMetadata(coin);
-
       const result = await downloadOne(coin, entry, { output, quality, forceRefresh });
 
       if (result.status === 'downloaded') {
@@ -145,16 +142,10 @@ export async function downloadAll(
         failed.push({ coin, id: entry.id, error: result.error });
       }
 
-      done++;
-      onProgress?.(done, coins.length);
-    }
-  }
-
-  const workerCount = Math.max(
-    1,
-    Math.min(Number.isFinite(concurrency) ? concurrency : DEFAULT_CONCURRENCY, coins.length)
+      return result;
+    },
+    { concurrency, onProgress }
   );
-  await Promise.all(Array.from({ length: workerCount }, worker));
 
   const metadata = entries.filter((e): e is CoinMetadata => e !== undefined);
   await writeFile(join(output, 'metadata.json'), `${JSON.stringify(metadata, null, 2)}\n`);

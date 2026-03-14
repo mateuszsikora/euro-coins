@@ -1,0 +1,32 @@
+/**
+ * Runs `fn` on every item in `items` with bounded concurrency.
+ *
+ * Results preserve input order — `results[i]` corresponds to `items[i]`.
+ * Progress is reported after each item completes.
+ */
+export async function concurrentMap<T, R>(
+  items: readonly T[],
+  fn: (item: T, index: number) => Promise<R>,
+  options: { concurrency: number; onProgress?: (done: number, total: number) => void }
+): Promise<R[]> {
+  const { concurrency, onProgress } = options;
+  const workerCount = Math.max(
+    1,
+    Math.min(Number.isFinite(concurrency) ? concurrency : 1, items.length)
+  );
+  const results = new Array<R>(items.length);
+  let nextIndex = 0;
+  let done = 0;
+
+  async function worker() {
+    while (nextIndex < items.length) {
+      const i = nextIndex++;
+      results[i] = await fn(items[i], i);
+      done++;
+      onProgress?.(done, items.length);
+    }
+  }
+
+  await Promise.all(Array.from({ length: workerCount }, worker));
+  return results;
+}
