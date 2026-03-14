@@ -54,7 +54,7 @@ See [countries/README.md](src/countries/README.md) for the file structure and st
 
 ## Data source
 
-All coin data and image URLs are sourced from the [European Central Bank](https://www.ecb.europa.eu/euro/coins/html/index.en.html). Images sourced from ECB, converted to normalized JPEG format.
+Coin data and image URLs sourced from the [European Central Bank](https://www.ecb.europa.eu/). See [ECB copyright](https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html).
 
 ## License
 

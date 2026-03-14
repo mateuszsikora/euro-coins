@@ -157,4 +157,4 @@ buildId({ country: 'de', type: 'regular', year: 2002, denomination: '2euro', ind
 
 ## ECB attribution
 
-Images sourced from the [European Central Bank](https://www.ecb.europa.eu), converted to normalized JPEG format.
+Images sourced from the [European Central Bank](https://www.ecb.europa.eu/), converted to normalized JPEG format. See [ECB copyright](https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html).
