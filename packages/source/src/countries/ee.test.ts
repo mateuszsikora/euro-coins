@@ -1,7 +1,7 @@
 import { type CountrySpecs, runCountryTest } from '../run-country-tests.js';
-import coins from './et.js';
+import coins from './ee.js';
 
-const country = 'et';
+const country = 'ee';
 
 const countrySpec: CountrySpecs = [
   [2011, 8, 0],

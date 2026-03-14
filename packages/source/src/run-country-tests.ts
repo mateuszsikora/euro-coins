@@ -9,7 +9,7 @@ const COUNTRY_NAMES: Record<CountryCode, string> = {
   cy: 'Cyprus',
   de: 'Germany',
   es: 'Spain',
-  et: 'Estonia',
+  ee: 'Estonia',
   fi: 'Finland',
   fr: 'France',
   gr: 'Greece',

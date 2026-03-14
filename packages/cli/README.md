@@ -62,6 +62,20 @@ euro-coins check --concurrency 32      # increase parallelism
 
 Exit code is `1` if any dead links are found.
 
+### `euro-coins types`
+
+Generates a self-contained `metadata.d.ts` file with TypeScript type declarations (`CountryCode`, `Denomination`, `CoinType`, `CoinMetadata`). Run once, commit the result — no runtime dependency needed.
+
+```bash
+euro-coins types --output src/types.d.ts
+```
+
+**Options:**
+
+| Option | Default | Description |
+|---|---|---|
+| `-o, --output <path>` | *required* | Output file path |
+
 ## Color output
 
 Colors are enabled automatically when stdout is a TTY. Supports standard environment variables:

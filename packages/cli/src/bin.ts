@@ -5,6 +5,7 @@ import { checkCommand } from './check.js';
 import { downloadCommand } from './download.js';
 import { ATTRIBUTION } from './format.js';
 import { parseConcurrency, parseQuality } from './parse.js';
+import { typesCommand } from './types.js';
 
 const program = new Command()
   .name('euro-coins')
@@ -31,5 +32,11 @@ program
   .description('HEAD-check all source URLs and report dead links')
   .option('--concurrency <number>', 'max parallel requests', parseConcurrency, 16)
   .action(checkCommand);
+
+program
+  .command('types')
+  .description('Generate TypeScript declarations for coin metadata')
+  .requiredOption('-o, --output <path>', 'output file path')
+  .action(typesCommand);
 
 program.parse();

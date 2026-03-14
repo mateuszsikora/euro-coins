@@ -4,7 +4,7 @@ export const COUNTRIES = [
   'be',
   'cy',
   'de',
-  'et',
+  'ee',
   'es',
   'fi',
   'fr',
