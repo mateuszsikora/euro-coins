@@ -19,6 +19,7 @@ npm run dev             # start dev server
 | Script | Description |
 |---|---|
 | `npm run download` | Download coin images to `public/coins/` |
+| `npm run types` | Generate TypeScript declarations to `src/types.d.ts` |
 | `npm run dev` | Start Vite dev server (auto-downloads coins via predev) |
 | `npm run build` | Type-check and production build (run `download` first) |
 | `npm run preview` | Preview production build |
@@ -42,6 +43,8 @@ Each view has contextual filters:
 ## Data
 
 Coin images and `metadata.json` are downloaded via `@euro-coins/cli` and served from `public/coins/`. The `dev` script auto-downloads via `predev`; for production builds, run `npm run download` explicitly after building the CLI. This directory is gitignored — no images are stored in the repository.
+
+TypeScript declarations (`src/types.d.ts`) are generated via `npm run types` and committed to the repo. Re-run when `@euro-coins/source` adds new countries or denominations.
 
 ## ECB attribution
 

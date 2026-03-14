@@ -7,7 +7,7 @@ const ALL_CODES: CountryCode[] = [
   'be',
   'cy',
   'de',
-  'et',
+  'ee',
   'es',
   'fi',
   'fr',

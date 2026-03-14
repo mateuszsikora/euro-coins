@@ -4,8 +4,8 @@ import at from './countries/at.js';
 import be from './countries/be.js';
 import cy from './countries/cy.js';
 import de from './countries/de.js';
+import ee from './countries/ee.js';
 import es from './countries/es.js';
-import et from './countries/et.js';
 import fi from './countries/fi.js';
 import fr from './countries/fr.js';
 import gr from './countries/gr.js';
@@ -33,7 +33,7 @@ export function getAllCoins(): CoinSource[] {
     ...cy,
     ...de,
     ...es,
-    ...et,
+    ...ee,
     ...fi,
     ...fr,
     ...gr,

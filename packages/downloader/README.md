@@ -131,6 +131,19 @@ import { toJpeg } from '@euro-coins/downloader';
 const jpeg = await toJpeg(pngBuffer, { quality: 90 });
 ```
 
+### `generateMetadataDts()`
+
+Generates a self-contained `.d.ts` string with all metadata types (`CountryCode`, `Denomination`, `CoinType`, `CoinMetadata`). Types are derived from the `COUNTRIES` and `DENOMINATIONS` arrays in `@euro-coins/source`, so the output stays in sync automatically.
+
+```ts
+import { generateMetadataDts } from '@euro-coins/downloader';
+import { writeFileSync } from 'node:fs';
+
+writeFileSync('metadata.d.ts', generateMetadataDts());
+```
+
+Consumers can commit the generated file and drop the dependency on `@euro-coins/downloader` and `@euro-coins/source`.
+
 ### `buildId(coin)`
 
 Generates a deterministic ID: `{country}_{type}_{year}_{denomination}_{index}`.
