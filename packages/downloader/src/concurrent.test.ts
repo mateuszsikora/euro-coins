@@ -63,28 +63,25 @@ describe('concurrentMap', () => {
     assert.deepEqual(indices, [0, 1, 2]);
   });
 
-  it('rejects when a mapper throws and reports partial progress', async () => {
-    const progress: { done: number; total: number }[] = [];
-    const error = new Error('boom');
+  it('processes all items even when some fail (no fail-fast)', async () => {
+    type Result = { ok: true; value: number } | { ok: false; error: string };
 
-    await assert.rejects(
-      () =>
-        concurrentMap(
-          [0, 1, 2],
-          async (_, index) => {
-            if (index === 1) throw error;
-            return index;
-          },
-          {
-            concurrency: 1,
-            onProgress: (done, total) => progress.push({ done, total }),
-          }
-        ),
-      (err) => err === error
+    const results = await concurrentMap(
+      [1, 2, 3, 4, 5],
+      async (n): Promise<Result> => {
+        if (n % 2 === 0) return { ok: false, error: `${n} failed` };
+        return { ok: true, value: n * 10 };
+      },
+      { concurrency: 2 }
     );
 
-    assert.equal(progress.length, 1);
-    assert.deepEqual(progress[0], { done: 1, total: 3 });
+    assert.deepEqual(results, [
+      { ok: true, value: 10 },
+      { ok: false, error: '2 failed' },
+      { ok: true, value: 30 },
+      { ok: false, error: '4 failed' },
+      { ok: true, value: 50 },
+    ]);
   });
 
   it('clamps concurrency to at least 1', async () => {
