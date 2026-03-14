@@ -2,7 +2,9 @@
  * Runs `fn` on every item in `items` with bounded concurrency.
  *
  * Results preserve input order — `results[i]` corresponds to `items[i]`.
- * Progress is reported after each item completes.
+ * Uses `allSettled` semantics: every item is processed regardless of
+ * individual failures. Progress is reported after each item completes.
+ * If `onProgress` throws, the error is logged but does not stop processing.
  */
 export async function concurrentMap<T, R>(
   items: readonly T[],
@@ -28,7 +30,11 @@ export async function concurrentMap<T, R>(
         results[i] = { status: 'rejected', reason: err };
       }
       done++;
-      onProgress?.(done, items.length);
+      try {
+        onProgress?.(done, items.length);
+      } catch (err) {
+        console.error('onProgress callback error:', err);
+      }
     }
   }
 

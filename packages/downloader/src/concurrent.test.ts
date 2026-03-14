@@ -88,6 +88,25 @@ describe('concurrentMap', () => {
     ]);
   });
 
+  it('continues processing when onProgress throws', async () => {
+    let callCount = 0;
+
+    const results = await concurrentMap([1, 2, 3], async (n) => n * 10, {
+      concurrency: 1,
+      onProgress: () => {
+        callCount++;
+        throw new Error('bad callback');
+      },
+    });
+
+    assert.equal(callCount, 3);
+    assert.deepEqual(results, [
+      { status: 'fulfilled', value: 10 },
+      { status: 'fulfilled', value: 20 },
+      { status: 'fulfilled', value: 30 },
+    ]);
+  });
+
   it('clamps concurrency to at least 1', async () => {
     const results = await concurrentMap([1, 2], async (n) => n, { concurrency: 0 });
     assert.deepEqual(results, [
