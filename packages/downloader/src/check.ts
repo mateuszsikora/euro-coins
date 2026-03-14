@@ -1,3 +1,4 @@
+import { concurrentMap } from './concurrent.js';
 import { checkImage } from './fetch.js';
 
 type CheckOptions = {
@@ -31,23 +32,6 @@ export async function checkUrl(url: string): Promise<boolean> {
  */
 export async function checkUrls(urls: string[], options: CheckOptions = {}): Promise<boolean[]> {
   const { concurrency = DEFAULT_CONCURRENCY, onProgress } = options;
-  const workerCount = Math.max(
-    1,
-    Math.min(Number.isFinite(concurrency) ? concurrency : DEFAULT_CONCURRENCY, urls.length)
-  );
-  const results = new Array<boolean>(urls.length);
-  let nextIndex = 0;
-  let done = 0;
-
-  async function worker() {
-    while (nextIndex < urls.length) {
-      const i = nextIndex++;
-      results[i] = await checkUrl(urls[i]);
-      done++;
-      onProgress?.(done, urls.length);
-    }
-  }
-
-  await Promise.all(Array.from({ length: workerCount }, worker));
-  return results;
+  const results = await concurrentMap(urls, (url) => checkUrl(url), { concurrency, onProgress });
+  return results.map((r) => (r.status === 'fulfilled' ? r.value : false));
 }
