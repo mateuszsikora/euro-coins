@@ -126,7 +126,7 @@ export async function downloadAll(
   let downloaded = 0;
   let skipped = 0;
 
-  const results = await concurrentMap(
+  await concurrentMap(
     coins,
     async (coin, i) => {
       const entry = coinMetadata(coin);
