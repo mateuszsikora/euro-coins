@@ -10,9 +10,10 @@ export async function concurrentMap<T, R>(
   options: { concurrency: number; onProgress?: (done: number, total: number) => void }
 ): Promise<R[]> {
   const { concurrency, onProgress } = options;
-  const workerCount = Math.max(
-    1,
-    Math.min(Number.isFinite(concurrency) ? concurrency : 1, items.length)
+  if (items.length === 0) return [];
+  const workerCount = Math.min(
+    Math.max(1, Number.isFinite(concurrency) ? concurrency : 1),
+    items.length
   );
   const results = new Array<R>(items.length);
   let nextIndex = 0;
