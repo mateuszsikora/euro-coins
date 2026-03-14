@@ -32,5 +32,6 @@ export async function checkUrl(url: string): Promise<boolean> {
  */
 export async function checkUrls(urls: string[], options: CheckOptions = {}): Promise<boolean[]> {
   const { concurrency = DEFAULT_CONCURRENCY, onProgress } = options;
-  return concurrentMap(urls, (url) => checkUrl(url), { concurrency, onProgress });
+  const results = await concurrentMap(urls, (url) => checkUrl(url), { concurrency, onProgress });
+  return results.map((r) => (r.status === 'fulfilled' ? r.value : false));
 }

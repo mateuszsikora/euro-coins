@@ -8,21 +8,25 @@ export async function concurrentMap<T, R>(
   items: readonly T[],
   fn: (item: T, index: number) => Promise<R>,
   options: { concurrency: number; onProgress?: (done: number, total: number) => void }
-): Promise<R[]> {
+): Promise<PromiseSettledResult<R>[]> {
   const { concurrency, onProgress } = options;
   if (items.length === 0) return [];
   const workerCount = Math.min(
     Math.max(1, Number.isFinite(concurrency) ? concurrency : 1),
     items.length
   );
-  const results = new Array<R>(items.length);
+  const results = new Array<PromiseSettledResult<R>>(items.length);
   let nextIndex = 0;
   let done = 0;
 
   async function worker() {
     while (nextIndex < items.length) {
       const i = nextIndex++;
-      results[i] = await fn(items[i], i);
+      try {
+        results[i] = { status: 'fulfilled', value: await fn(items[i], i) };
+      } catch (err) {
+        results[i] = { status: 'rejected', reason: err };
+      }
       done++;
       onProgress?.(done, items.length);
     }
