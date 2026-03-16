@@ -11,6 +11,7 @@
   },
   "files": ["dist"],
   "scripts": {
+    "start": "node dist/bin.js",
     "prepack": "npm run build",
     "build": "tsc --build",
     "typecheck": "tsc --noEmit -p tsconfig.test.json",
