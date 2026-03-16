@@ -5,7 +5,11 @@ import { Footer } from './Footer';
 describe('Footer', () => {
   it('renders ECB attribution', () => {
     render(<Footer />);
-    expect(screen.getByText(/Images sourced from ECB/)).toBeInTheDocument();
+    expect(screen.getByText(/Images sourced from/, { exact: false })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'ECB' })).toHaveAttribute(
+      'href',
+      'https://www.ecb.europa.eu/'
+    );
   });
 
   it('renders issues link with correct href', () => {
