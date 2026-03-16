@@ -48,4 +48,4 @@ TypeScript declarations (`src/types.d.ts`) are generated via `npm run types` and
 
 ## ECB attribution
 
-Images sourced from the [European Central Bank](https://www.ecb.europa.eu), converted to normalized JPEG format.
+Images sourced from the [European Central Bank](https://www.ecb.europa.eu/), converted to normalized JPEG format. See [ECB copyright](https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html).

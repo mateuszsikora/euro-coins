@@ -16,8 +16,7 @@ const green = (v: string | number) => colorize('green', v);
 const yellow = (v: string | number) => colorize('yellow', v);
 
 /** ECB attribution notice displayed in help and on startup. */
-export const ATTRIBUTION =
-  'Images sourced from the European Central Bank (ECB), converted to normalized JPEG format.';
+export const ATTRIBUTION = 'Coin images sourced from the European Central Bank (ECB).';
 
 /** Formats a progress line, e.g. `"Downloading: 42/100"`. */
 export function formatProgress(label: string, done: number, total: number): string {

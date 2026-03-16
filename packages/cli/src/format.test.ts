@@ -23,8 +23,8 @@ describe('ATTRIBUTION', () => {
     assert.match(ATTRIBUTION, /European Central Bank/);
   });
 
-  it('mentions format conversion', () => {
-    assert.match(ATTRIBUTION, /JPEG/i);
+  it('mentions ECB abbreviation', () => {
+    assert.match(ATTRIBUTION, /ECB/);
   });
 });
 

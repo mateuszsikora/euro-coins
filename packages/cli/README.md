@@ -85,4 +85,4 @@ Colors are enabled automatically when stdout is a TTY. Supports standard environ
 
 ## ECB attribution
 
-Images sourced from the [European Central Bank](https://www.ecb.europa.eu), converted to normalized JPEG format.
+Coin images sourced from the [European Central Bank](https://www.ecb.europa.eu/). See [ECB copyright](https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html).
