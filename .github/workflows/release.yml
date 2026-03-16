@@ -1,0 +1,28 @@
+name: Version
+
+on:
+  release:
+    types: [prereleased]
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+      - name: Bump versions
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          npm version "$VERSION" --no-git-tag-version --workspaces --if-present
+          node scripts/sync-internal-deps.mjs "$VERSION"
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          title: "chore: version packages ${{ github.ref_name }}"
+          commit-message: "chore: version packages ${{ github.ref_name }}"
+          branch: release/${{ github.ref_name }}
