@@ -1,8 +1,12 @@
 name: Version
 
 on:
-  release:
-    types: [prereleased]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release (e.g. 1.0.0)"
+        required: true
+        type: string
 
 jobs:
   version:
@@ -18,11 +22,10 @@ jobs:
           cache: npm
       - name: Bump versions
         run: |
-          VERSION="${GITHUB_REF_NAME#v}"
-          npm version "$VERSION" --no-git-tag-version --workspaces --if-present
-          node scripts/sync-internal-deps.mjs "$VERSION"
+          npm version "${{ inputs.version }}" --no-git-tag-version --workspaces --if-present
+          node scripts/sync-internal-deps.mjs "${{ inputs.version }}"
       - uses: peter-evans/create-pull-request@v7
         with:
-          title: "chore: version packages ${{ github.ref_name }}"
-          commit-message: "chore: version packages ${{ github.ref_name }}"
-          branch: release/${{ github.ref_name }}
+          title: "chore: version packages v${{ inputs.version }}"
+          commit-message: "chore: version packages v${{ inputs.version }}"
+          branch: release/v${{ inputs.version }}
