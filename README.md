@@ -29,7 +29,7 @@ euro-coins types -o types.d.ts # generate TypeScript declarations
 | [`@euro-coins/source`](packages/source) | Map of every euro coin design with metadata and ECB image URLs |
 | [`@euro-coins/downloader`](packages/downloader) | Library for downloading and normalizing coin images to JPEG |
 | [`@euro-coins/cli`](packages/cli) | CLI wrapper — download, check URLs, generate types |
-| [`@euro-coins/browser`](packages/browser) | Vite + React demo app for visual data verification (not published) |
+| [`@euro-coins/browser`](packages/browser) | Vite + React demo app for visual data verification — [live demo](https://euro-coins-browser.netlify.app/) |
 
 ### Dependency graph
 

@@ -13,6 +13,7 @@
   },
   "files": ["dist"],
   "scripts": {
+    "prepack": "npm run build",
     "build": "tsc --build",
     "typecheck": "tsc --noEmit -p tsconfig.test.json",
     "test": "node --test --import tsx \"src/**/*.test.ts\"",
