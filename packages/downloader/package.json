@@ -11,9 +11,7 @@
       "import": "./dist/index.js"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "prepack": "npm run build",
     "build": "tsc --build",
@@ -33,14 +31,7 @@
   "bugs": {
     "url": "https://github.com/mateuszsikora/euro-coins/issues"
   },
-  "keywords": [
-    "euro",
-    "coins",
-    "downloader",
-    "ecb",
-    "sharp",
-    "image-processing"
-  ],
+  "keywords": ["euro", "coins", "downloader", "ecb", "sharp", "image-processing"],
   "publishConfig": {
     "access": "public",
     "provenance": true

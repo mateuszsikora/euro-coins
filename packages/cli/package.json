@@ -9,9 +9,7 @@
   "bin": {
     "euro-coins": "./dist/bin.js"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "start": "node dist/bin.js",
     "prepack": "npm run build",
@@ -32,13 +30,7 @@
   "bugs": {
     "url": "https://github.com/mateuszsikora/euro-coins/issues"
   },
-  "keywords": [
-    "euro",
-    "coins",
-    "cli",
-    "ecb",
-    "downloader"
-  ],
+  "keywords": ["euro", "coins", "cli", "ecb", "downloader"],
   "publishConfig": {
     "access": "public",
     "provenance": true
