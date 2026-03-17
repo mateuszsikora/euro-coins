@@ -1,6 +1,6 @@
 {
   "name": "@euro-coins/browser",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -20,7 +20,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@euro-coins/cli": "^0.1.0",
+    "@euro-coins/cli": "^0.2.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@types/react": "^19.0.0",
