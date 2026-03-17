@@ -1,6 +1,6 @@
 {
   "name": "@euro-coins/cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "CLI for downloading and checking euro coin images from ECB",
   "type": "module",
   "engines": {
@@ -36,8 +36,8 @@
     "provenance": true
   },
   "dependencies": {
-    "@euro-coins/downloader": "^0.1.0",
-    "@euro-coins/source": "^0.1.0",
+    "@euro-coins/downloader": "^0.2.0",
+    "@euro-coins/source": "^0.2.0",
     "commander": "^12.0.0",
     "ora": "^8.0.0"
   }

@@ -28,12 +28,15 @@ jobs:
           fi
         env:
           VERSION: ${{ inputs.version }}
+      - run: npm ci
       - name: Bump versions
         run: |
           npm version "$VERSION" --no-git-tag-version --workspaces --if-present
           node scripts/sync-internal-deps.mjs "$VERSION"
         env:
           VERSION: ${{ inputs.version }}
+      - run: npm install --package-lock-only
+      - run: npm run qa:fix
       - uses: peter-evans/create-pull-request@v7
         with:
           title: "chore: version packages v${{ inputs.version }}"
