@@ -4,6 +4,7 @@ export const COUNTRY_NAMES: Record<CountryCode, string> = {
   ad: 'Andorra',
   at: 'Austria',
   be: 'Belgium',
+  bg: 'Bulgaria',
   cy: 'Cyprus',
   de: 'Germany',
   es: 'Spain',

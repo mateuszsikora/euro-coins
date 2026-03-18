@@ -5,6 +5,7 @@ import type { CountryCode } from './types';
 const ALL_CODES: CountryCode[] = [
   'at',
   'be',
+  'bg',
   'cy',
   'de',
   'ee',
@@ -36,8 +37,8 @@ describe('COUNTRY_NAMES', () => {
     }
   });
 
-  it('covers exactly 24 countries', () => {
-    expect(Object.keys(COUNTRY_NAMES)).toHaveLength(24);
+  it('covers exactly 25 countries', () => {
+    expect(Object.keys(COUNTRY_NAMES)).toHaveLength(25);
   });
 
   it('maps known codes to correct names', () => {
