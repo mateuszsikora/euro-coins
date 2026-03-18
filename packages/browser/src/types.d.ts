@@ -2,6 +2,7 @@
 export type CountryCode =
   | 'at'
   | 'be'
+  | 'bg'
   | 'cy'
   | 'de'
   | 'ee'

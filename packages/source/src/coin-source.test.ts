@@ -3,8 +3,8 @@ import { describe, it } from 'node:test';
 import { COUNTRIES, DENOMINATIONS } from './coin-source.js';
 
 describe('COUNTRIES', () => {
-  it('has 24 eurozone countries', () => {
-    assert.equal(COUNTRIES.length, 24);
+  it('has 25 eurozone countries', () => {
+    assert.equal(COUNTRIES.length, 25);
   });
 
   it('contains unique codes', () => {

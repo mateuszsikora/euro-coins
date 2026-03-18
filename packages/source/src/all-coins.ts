@@ -2,6 +2,7 @@ import type { CoinSource } from './coin-source.js';
 import ad from './countries/ad.js';
 import at from './countries/at.js';
 import be from './countries/be.js';
+import bg from './countries/bg.js';
 import cy from './countries/cy.js';
 import de from './countries/de.js';
 import ee from './countries/ee.js';
@@ -24,12 +25,13 @@ import sk from './countries/sk.js';
 import sm from './countries/sm.js';
 import va from './countries/va.js';
 
-/** Returns all coin sources across all 24 eurozone countries. */
+/** Returns all coin sources across all 25 eurozone countries. */
 export function getAllCoins(): CoinSource[] {
   return [
     ...ad,
     ...at,
     ...be,
+    ...bg,
     ...cy,
     ...de,
     ...es,

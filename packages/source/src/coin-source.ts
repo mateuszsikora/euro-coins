@@ -1,7 +1,8 @@
-/** All 24 countries and territories that use the euro (ISO 3166-1 alpha-2 codes). */
+/** All 25 countries and territories that use the euro (ISO 3166-1 alpha-2 codes). */
 export const COUNTRIES = [
   'at',
   'be',
+  'bg',
   'cy',
   'de',
   'ee',
