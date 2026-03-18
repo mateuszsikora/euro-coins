@@ -25,7 +25,7 @@ import sk from './countries/sk.js';
 import sm from './countries/sm.js';
 import va from './countries/va.js';
 
-/** Returns all coin sources across all 25 eurozone countries. */
+/** Returns all coin sources across all 25 euro-using countries and territories. */
 export function getAllCoins(): CoinSource[] {
   return [
     ...ad,
