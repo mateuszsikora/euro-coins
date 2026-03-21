@@ -1,6 +1,6 @@
 {
   "name": "@euro-coins/downloader",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Download and normalize euro coin images from ECB",
   "type": "module",
   "engines": {
@@ -40,7 +40,7 @@
     "provenance": true
   },
   "dependencies": {
-    "@euro-coins/source": "^0.3.0",
+    "@euro-coins/source": "^0.4.0",
     "sharp": "^0.34.0"
   }
 }
