@@ -38,6 +38,6 @@
   },
   "dependencies": {
     "@euro-coins/source": "^0.3.0",
-    "sharp": "^0.33.0"
+    "sharp": "^0.34.0"
   }
 }
