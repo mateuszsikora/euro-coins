@@ -1,6 +1,6 @@
 {
   "name": "@euro-coins/source",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Structured map of every euro coin design with metadata and ECB image URLs",
   "type": "module",
   "main": "./dist/index.js",
