@@ -3,6 +3,9 @@
   "version": "0.3.0",
   "description": "Download and normalize euro coin images from ECB",
   "type": "module",
+  "engines": {
+    "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
