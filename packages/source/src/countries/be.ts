@@ -11,7 +11,7 @@ const regular1999 = [
   regular({
     year: 1999,
     denomination: '1euro',
-    url: 'https://www.ecb.europa.eu/euro/coins/common/shared/img/be/Belgium_1euro.jpg',
+    url: 'https://www.ecb.europa.eu/euro/coins/common/shared/img/be/Belgium_1999_1euro.gif',
   }),
   regular({
     year: 1999,
